@@ -11,3 +11,4 @@ Steps:
 8. Install SymSpell -> pip install -U symspellpy
 9. Download en model -> python -m spacy download en (requires Admin privileges)
 10. Install Flask -> pip install Flask
+11. Run application -> python grammer_correction_app.py

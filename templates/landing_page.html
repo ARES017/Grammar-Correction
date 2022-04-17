@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FlaskBlog</title>
+    <title>Grammar Correction</title>
 </head>
 <body>
-   <h1>Welcome to FlaskBlog</h1>
+   <h1>Type something to perform grammar correction</h1>
 </body>
+<form action="http://localhost:5000/", method="POST">
+    <label for="text">Original text</label>
+    <textarea id="text" class="text" cols="60" rows ="20" name="originalText"></textarea><br/>
+    <input type="submit" value="Submit"/>
+    <input type = "reset" value = "Clear">
+</form>
 </html>
