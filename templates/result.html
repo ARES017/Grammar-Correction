@@ -1,10 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Grammar Correction</title>
-</head>
-<body>
-    <textarea id="text" class="text" cols="60" rows ="20" name="originalText"></textarea><br/>
-    <textarea id="text" class="text" cols="60" rows ="20" name="originalText"></textarea><br/>
-</body>
+
+
+<html>
+    <head>
+    <script>
+    function add_field()
+    {
+      remove_field()
+      var total_text=document.getElementsByClassName("input_text");
+      document.getElementById("field_div").innerHTML=document.getElementById("field_div").innerHTML+
+      "<p id='result'><input type='text' class='text' id='result' placeholder='Enter Text'></p>";
+    }
+    function remove_field()
+    {
+        try{
+        document.getElementById("field_div").innerHTML="";
+        }
+        catch {console.log("Unable to remove field_div")}
+    }
+    </script>
+    <style>
+    body
+    {
+      margin:0 auto;
+      padding:0;
+      text-align:center;
+      height:2000px;
+      background-color:silver;
+    }
+    #wrapper
+    {
+      width:995px;
+      padding:0px;
+      margin:0px auto;
+      font-family:helvetica;
+      text-align:center;
+    }
+    input[type="text"]
+    {
+      width:200px;
+      height:35px;
+      margin-right:2px;
+      border-radius:3px;
+      border:1px solid green;
+      padding:5px;
+    }
+    input[type="button"]
+    {
+      background:none;
+      color:white;
+      border:none;
+      width:110px;
+      height:35px;
+      border-radius:3px;
+      background-color:green;
+      font-size:16px;
+    }
+    </style>
+    </head>
+    <body>
+    <div id="wrapper">
+        <input type="button" value="Submit" onclick="add_field();">
+    <div id="field_div">
+    </div>
+    </div>
+    </body>
+    </html>
+    
