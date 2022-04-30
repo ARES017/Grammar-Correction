@@ -1,42 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script>
-    function send_api(){
-
-    var input_text = document.getElementById("input_text").value
-
-    try {     
-        const response = fetch('http://localhost:5000/', {
-        method: 'post',
-        body: JSON.stringify(
-            {
-                "inputText": input_text
-            }
-            ),
-        headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        );
-        console.log('Completed!', response);
-    } 
-    catch(err) {
-        console.error(`Error: ${err}`);
-    }
-}
-
-function reset()
-{
-    document.getElementById("input_text").value = ""
-}
-</script>
-
 <head>
     <meta charset="UTF-8">
     <title>Grammar Correction</title>
-    <link rel="icon" type="image/x-icon" href="static/images/favicon.png">
+
+    <!-- Link favicon, CSS and JS files to HTML file -->
+    <link rel="icon" href="static/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="static/css/layout.css" type="text/css">
+    <script src="{{ url_for('static', filename='js/button_actions.js') }}"></script>
 </head>
 
 <body>
@@ -44,36 +16,32 @@ function reset()
 
     <div class="inline-div">
         <p align="center">Input text</p>
-        <textarea id="input_text" cols="80" rows="20" class="inline-input-txtarea"
+        <textarea id="input_text" cols="80" rows="17" class="inline-input-txtarea"
         name="inputText" placeholder="Type something to perform grammar correction"></textarea>></textarea>
     </div>
 
     <div class="inline-div">
         <p align="center">Corrected text</p>
-        <textarea id="output_text" cols="80" rows="20" class="inline-output-txtarea" 
+        <textarea id="output_text" cols="80" rows="17" class="inline-output-txtarea" 
         name="outputText" disabled></textarea>></textarea>
     </div>
 
-    <div class="submit_button">
-        <input type="button" value="Submit" id="post-btn", class="submit-button", onclick="send_api();">
+    <div>
+        <input type="button" value="Submit" id="submit-btn", class="submit-button", onclick="send_api();">
     </div>
 
-    <div class="reset_button">
-        <input type="button" value="Clear" id="post-btn", class="reset-button", onclick="reset();">
+    <div>
+        <input type="button" value="Clear" id="clear-btn", class="clear-button", onclick="reset();">
+    </div>
+
+    <div>
+        <input type="button" value="View Edits" id="view-edit-btn", class="view-edits-button", onclick="hide_edit_text_area();">
+    </div>
+
+    <div>
+        <textarea id="text_edits" cols="40" rows="9" class="text-edits-txtarea" 
+        name="text-edits" disabled></textarea>></textarea>
     </div>
     
 </html>
-
-<!-- Add text to text area on button click -->
-<!-- <script>
-    function input(){
-        var text = "here the text that you want to input.";
-        document.forms.form1.area.value = text;
-    }    
-    </script>
-    <form name='form1'>
-        Click<input onclick='input()' type='button' value='BUTTON' id='button'><br>
-        <textarea name='area'></textarea>
-    
-    </form> -->
     
