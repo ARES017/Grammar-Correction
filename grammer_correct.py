@@ -17,21 +17,24 @@ def tokenize_sentences(long_sentence):
 def grammer_correct(gf, sentence_list):
   corrected_sentece_list = []
   corrected_sentece_edit_list = []
-  sentence_count = 1
 
   for sentence in sentence_list:
     corrections = gf.correct(sentence, max_candidates=1)
-    
+    corrected_sentece_edit_list.append(f"Sentence - {sentence}")
+
     for corrected_sentence in corrections:
       edit_list = gf.get_edits(sentence, corrected_sentence)
-      corrected_sentece_edit_list.append(
-        "\n".join(
-          [f"Sentence {sentence_count}: {edits[1]} -> {edits[4]}" for edits in edit_list]
+      corrected_sentece_edit_list.append("Corrections -")
+
+      if edit_list:
+        corrected_sentece_edit_list.append(
+          "\n".join(
+            [f"{count+1}. {edits[1]} -> {edits[4]}" for count, edits in enumerate(edit_list)]
+            )
           )
-        )
+      corrected_sentece_edit_list.append("\n")
 
     corrected_sentece_list.append(corrected_sentence)
-    sentence_count += 1
 
   updated_sentence = " ".join(corrected_sentece_list)
   sentence_edits = "\n".join(corrected_sentece_edit_list)
