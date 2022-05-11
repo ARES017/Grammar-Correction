@@ -15,7 +15,7 @@ Steps:
 12. Run application -> python grammer_correction_app.py
 
 ## NLTK packages
-Download punkt from NLTK before staring the application
+Download punkt from NLTK before starting the application
 ```
 import nltk
 nltk.download('punkt')
