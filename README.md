@@ -13,3 +13,10 @@ Steps:
 10. Install Flask -> pip install Flask
 11. Intsall status library -> pip install python-status (for HTTP status codes)
 12. Run application -> python grammer_correction_app.py
+
+## NLTK packages
+Download punkt from NLTK before staring the application
+```
+import nltk
+nltk.download('punkt')
+```
